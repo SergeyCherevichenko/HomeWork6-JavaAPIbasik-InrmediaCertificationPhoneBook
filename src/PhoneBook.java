@@ -15,8 +15,8 @@ public class PhoneBook {
         Scanner scan = new Scanner(System.in);
         System.out.println("Введите свое имя: ");
         name = scan.next();
-
         menuPhoneBook();
+        scan.close();
 
     }
 
@@ -41,6 +41,7 @@ public class PhoneBook {
                    returnMenu();
                }
            }
+
 
             if (opNumber == 1) {
                 printPhoneBook();
@@ -108,6 +109,7 @@ public class PhoneBook {
         String nameContact = scan.next().toLowerCase();
         System.out.println("Введите номер телефона: ");
         String numberPhone = scan.next().toLowerCase();
+
         boolean isTrue = true;
         if (phoneBook.isEmpty()) {
             ArrayList<String> phoneList = new ArrayList<>();
@@ -124,7 +126,7 @@ public class PhoneBook {
                     phoneList = phone.get(i);
                     phoneList.add(numberPhone);
                     phoneBook.put(nameContact,phoneList);
-                    System.out.println(phoneBook);
+
                     isTrue = false;
                 }
 
@@ -137,7 +139,6 @@ public class PhoneBook {
                 phoneBook.put(nameContact, phoneList);
                 nameUser.add(nameContact);
                 phone.add(phoneList);
-                System.out.println(phoneBook);
                 returnMenu();
             }
 
@@ -150,6 +151,7 @@ public class PhoneBook {
         Scanner scan = new Scanner(System.in);
         System.out.println("Введите имя : ");
         String findName = scan.next().toLowerCase();
+
         boolean find = false;
         for (String key:phoneBook.keySet()){
             if(findName.contains(key)){
